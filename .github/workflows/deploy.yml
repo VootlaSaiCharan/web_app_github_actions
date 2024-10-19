@@ -37,7 +37,12 @@ jobs:
         run: |
           ssh -T -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
             # Clone the repository if not already present
-            git clone https://github.com/VootlaSaiCharan/htmlproject.git
+            if [ ! -d "your-repo" ]; then
+              git clone https://github.com/VootlaSaiCharan/htmlproject.git
+            fi
+
+            cd htmlproject
+            git pull origin master
             
             # Check if any containers are running
             running_containers=$(docker ps -q)
@@ -61,6 +66,8 @@ jobs:
             if [ -z "$no_containers" ] && [ -z "$no_images" ]; then
               echo 'No containers and images found.'
             fi
+
+            #enter in side the Dir
 
             # Build Docker image
             echo 'Building Docker image...'
