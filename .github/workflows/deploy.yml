@@ -38,7 +38,7 @@ jobs:
           ssh -T -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
             # Clone the repository if not already present
             if [ ! -d "your-repo" ]; then
-              git clone https://github.com/VootlaSaiCharan/htmlproject.git
+              git clone https://github.com/VootlaSaiCharan/web_app_github_actions.git
             fi
 
             cd htmlproject
