@@ -41,7 +41,7 @@ jobs:
               git clone https://github.com/VootlaSaiCharan/web_app_github_actions.git
             fi
 
-            cd htmlproject
+            cd web_app_github_actions
             git pull origin master
             
             # Check if any containers are running
